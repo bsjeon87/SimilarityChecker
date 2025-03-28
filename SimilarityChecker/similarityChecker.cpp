@@ -7,6 +7,18 @@ using std::set;
 
 class SimilarityChecker {
 private:
+	int MAX_LENGTH_SCORE = 60;
+public:
+	float getLengthScore(const string& inputA, const string& inputB) {
+		const int inputALen = inputA.length();
+		const int inputBLen = inputB.length();
+		const int longInputLength = (inputALen > inputBLen) ? inputALen : inputBLen;
+		const int shortInputLength = (inputALen < inputBLen) ? inputALen : inputBLen;
+		const int gap = longInputLength - shortInputLength;
+
+		return (1 - ((float)gap / shortInputLength)) * MAX_LENGTH_SCORE;
+	}
+
 	float getAlphaScore(const string& inputA, const string& inputB) {
 		set<char> charForA;
 		set<char> charForB;
@@ -29,8 +41,8 @@ private:
 
 		return ((float)sameCnt / totalCnt) * 40;
 	}
-public:
+
 	float getScore(const string& inputA, const string& inputB) {
-		return getAlphaScore(inputA, inputB);
+		return getLengthScore(inputA, inputB) + getAlphaScore(inputA, inputB);
 	}
 };
