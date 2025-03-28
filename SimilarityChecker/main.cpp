@@ -4,20 +4,26 @@
 using namespace testing;
 using namespace std;
 
-TEST(lengthChecker, length1)
+class SimilarityCheckerFixture : public Test
 {
+public:
 	SimilarityChecker similarityChecker;
-	string inputA = "abab";
-	string inputB = "bbbb";
+	string inputA;
+	string inputB;
+};
+
+TEST_F(SimilarityCheckerFixture, length1)
+{
+	inputA = "abab";
+	inputB = "bbbb";
 
 	EXPECT_EQ(60, similarityChecker.getLengthScore(inputA, inputB));
 }
 
-TEST(lengthChecker, length2)
+TEST_F(SimilarityCheckerFixture, length2)
 {
-	SimilarityChecker similarityChecker;
-	string inputA = "abab";
-	string inputB = "bb";
+	inputA = "abab";
+	inputB = "bb";
 
 	EXPECT_EQ(0, similarityChecker.getLengthScore(inputA, inputB));
 }

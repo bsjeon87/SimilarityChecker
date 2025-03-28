@@ -7,9 +7,13 @@ class SimilarityChecker {
 public:
 	int getLengthScore(string inputA, string inputB)
 	{
-		if (inputA.length() > inputB.length())
-			return (1 - (inputA.length() - inputB.length()) / inputB.length()) * 60;
+		const static int MAX_LENGTH_SCORE = 60;
+		const int inputALen = inputA.length();
+		const int inputBLen = inputB.length();
 
-		return 60;
+		if (inputALen > inputBLen)
+			return (1 - (inputALen - inputBLen)) / inputBLen * MAX_LENGTH_SCORE;
+
+		return MAX_LENGTH_SCORE;
 	}
 };
