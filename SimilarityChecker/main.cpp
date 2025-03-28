@@ -17,7 +17,7 @@ TEST_F(SimilarityCheckerFixture, length1)
 	inputA = "abab";
 	inputB = "bbbb";
 
-	EXPECT_EQ(60, similarityChecker.getLengthScore(inputA, inputB));
+	EXPECT_EQ(60, similarityChecker.getScore(inputA, inputB));
 }
 
 TEST_F(SimilarityCheckerFixture, length2)
@@ -25,7 +25,7 @@ TEST_F(SimilarityCheckerFixture, length2)
 	inputA = "abab";
 	inputB = "bb";
 
-	EXPECT_EQ(0, similarityChecker.getLengthScore(inputA, inputB));
+	EXPECT_EQ(0, similarityChecker.getScore(inputA, inputB));
 }
 
 TEST_F(SimilarityCheckerFixture, length3)
@@ -33,7 +33,7 @@ TEST_F(SimilarityCheckerFixture, length3)
 	inputA = "ab";
 	inputB = "bbbb";
 
-	EXPECT_EQ(0, similarityChecker.getLengthScore(inputA, inputB));
+	EXPECT_EQ(0, similarityChecker.getScore(inputA, inputB));
 }
 
 TEST_F(SimilarityCheckerFixture, length4)
@@ -41,7 +41,7 @@ TEST_F(SimilarityCheckerFixture, length4)
 	inputA = "ab";
 	inputB = "bbb";
 
-	EXPECT_EQ(30, similarityChecker.getLengthScore(inputA, inputB));
+	EXPECT_EQ(30, similarityChecker.getScore(inputA, inputB));
 }
 
 int main() {
