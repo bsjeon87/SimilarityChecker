@@ -8,40 +8,26 @@ class SimilarityCheckerFixture : public Test
 {
 public:
 	SimilarityChecker similarityChecker;
-	string inputA;
-	string inputB;
 };
 
 TEST_F(SimilarityCheckerFixture, length1)
 {
-	inputA = "abab";
-	inputB = "bbbb";
-
-	EXPECT_EQ(60, similarityChecker.getScore(inputA, inputB));
+	EXPECT_EQ(60, similarityChecker.getScore("abab", "bbbb"));
 }
 
 TEST_F(SimilarityCheckerFixture, length2)
 {
-	inputA = "abab";
-	inputB = "bb";
-
-	EXPECT_EQ(0, similarityChecker.getScore(inputA, inputB));
+	EXPECT_EQ(0, similarityChecker.getScore("abab", "bb"));
 }
 
 TEST_F(SimilarityCheckerFixture, length3)
 {
-	inputA = "ab";
-	inputB = "bbbb";
-
-	EXPECT_EQ(0, similarityChecker.getScore(inputA, inputB));
+	EXPECT_EQ(0, similarityChecker.getScore("ab", "bbbb"));
 }
 
 TEST_F(SimilarityCheckerFixture, length4)
 {
-	inputA = "ab";
-	inputB = "bbb";
-
-	EXPECT_EQ(30, similarityChecker.getScore(inputA, inputB));
+	EXPECT_EQ(30, similarityChecker.getScore("ab", "bbb"));
 }
 
 int main() {
