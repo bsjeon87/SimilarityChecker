@@ -11,8 +11,12 @@ public:
 		const int inputALen = inputA.length();
 		const int inputBLen = inputB.length();
 
-		if (inputALen > inputBLen)
+		if (inputALen > inputBLen) {
 			return (1 - (inputALen - inputBLen)) / inputBLen * MAX_LENGTH_SCORE;
+		}
+		else if (inputALen < inputBLen) {
+			return (1 - (inputBLen - inputALen)) / inputALen * MAX_LENGTH_SCORE;
+		}
 
 		return MAX_LENGTH_SCORE;
 	}
