@@ -36,6 +36,14 @@ TEST_F(SimilarityCheckerFixture, length3)
 	EXPECT_EQ(0, similarityChecker.getLengthScore(inputA, inputB));
 }
 
+TEST_F(SimilarityCheckerFixture, length4)
+{
+	inputA = "ab";
+	inputB = "bbb";
+
+	EXPECT_EQ(30, similarityChecker.getLengthScore(inputA, inputB));
+}
+
 int main() {
 	InitGoogleMock();
 	return RUN_ALL_TESTS();
